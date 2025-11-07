@@ -1,13 +1,13 @@
 ![SH1MMER (light)](/assets/sh1mmer_light_banner.png#gh-dark-mode-only)
 ![SH1MMER (dark)](/assets/sh1mmer_dark_banner.png#gh-light-mode-only)
 
-### Shady Hardware 1nstrument Makes Machine Enrollment Retreat
+### WH1MMER
 _Website, source tree, and write-up for a ChromeOS™️ enrollment jailbreak_
 ***
 
-## What is SH1MMER?
+## What is WH1MMER?
 
-**SH1MMER** is an exploit found in the ChromeOS shim kernel that utilitzes modified RMA factory shims to gain code execution at recovery.
+**WH1MMER** is an exploit found in the ChromeOS shim kernel that utilitzes modified RMA factory shims to gain code execution at recovery.
 _For more info, check out the blog post/writeup [here](https://blog.coolelectronics.me/breaking-cros-2/)_.
 
 #### How does it work?
@@ -18,8 +18,6 @@ We can edit the other partitions to our will as long as we remove the forced rea
 
 ## How do I use it?
 
-> [!NOTE]
-> [dl.sh1mmer.me](https://dl.sh1mmer.me) has been taken down, so you'll need to find a site rehosting the RMA shims alongside Chromebrew.
 
 Here's how you do that.
 First, you need to know your Chromebook's board. Go to `chrome://version` on your Chromebook and copy the word after `stable-channel`.
@@ -37,34 +35,18 @@ If it's not, good luck. You'll have to try and call up your OEM and demand the f
 
 ***
 
-### Building A Beautiful World Shim
+### Building A WH1MMER Shim
 
 Now you can start building. Type out all of these commands in the terminal.
 You need to be on Linux or WSL2 and have the following packages installed: `git`, `wget`.
 You may need to install additional packages, which the script will prompt you to do.
 
 ```
-git clone https://github.com/MercuryWorkshop/sh1mmer
-cd sh1mmer/wax
+git clone https://diddydwin/w1mmer
+cd w1mmer/fax
 sudo bash wax.sh -i path/to/the/shim/you/downloaded.bin
 ```
 This will build a beautiful world mini shim. If you want to add chromebrew, do the following:
-
-```
-git clone https://github.com/MercuryWorkshop/sh1mmer
-cd sh1mmer/wax
-wget "https://web.archive.org/web/20230324140756id_/https://dl.sh1mmer.me/build-tools/chromebrew/chromebrew.tar.gz"
-sudo bash wax.sh -i path/to/the/shim/you/downloaded.bin --chromebrew chromebrew.tar.gz -s 4G
-```
-
-> [!NOTE]
-> If you want to build a devshim, replace `chromebrew.tar.gz` with `chromebrew-dev.tar.gz` and replace `-s 4G` with `-s 7G` in the wax command.
-> Devshim builds will mount a much larger Chromebrew partition over `/usr/local`,
-> allowing you to access a desktop environment and even Firefox from within SH1MMER.
-> It's what allowed us to [run DOOM on a shim](https://github.com/CoolElectronics/blog/blob/master/src/content/blog/breaking/doom.jpg?raw=true).
-
-When this finishes, the bin file in the path you provided will have been converted into a **SH1MMER** image.
-*Note that this is a destructive operation, you will need to redownload a fresh shim to try again if it fails.*
 
 After injecting, you may continue to the "[Booting Into A Shim](#booting-into-a-shim)" section.
 
